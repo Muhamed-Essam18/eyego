@@ -1,4 +1,4 @@
-export type EmployeeStatus = "active" | "on_leave" | "terminated";
+export type EmployeeStatus = "active" | "onleave" | "terminated";
 
 export type Gender = "male" | "female";
 

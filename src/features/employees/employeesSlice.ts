@@ -1,12 +1,15 @@
+"use client";
+
 import { createSlice } from "@reduxjs/toolkit";
-import { Employee } from "../../types/employee";
-import { EmployeesMockup } from "../../data/employees";
+import { Employee } from "@/types/employee";
+import { EmployeesMockup } from "@/data/employees";
+
 interface EmployeesState {
-  list: Employee[];
+  employees: Employee[];
 }
 
 const initialState: EmployeesState = {
-  list: EmployeesMockup,
+  employees: EmployeesMockup,
 };
 
 const employeesSlice = createSlice({
