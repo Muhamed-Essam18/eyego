@@ -1,0 +1,40 @@
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+interface AuthState {
+  isAuthenticated: boolean;
+  user: string | null;
+}
+
+const initialState: AuthState = {
+  isAuthenticated: null,
+  user: null,
+};
+
+const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    login: (
+      state,
+      action: PayloadAction<{ username: string; password: string }>,
+    ) => {
+      const { username, password } = action.payload;
+
+      if (username === "admin" && password === "1234") {
+        state.isAuthenticated = true;
+        state.user = username;
+        alert("Login successful!");
+      } else {
+        alert("Invalid credentials! Try admin/1234");
+      }
+    },
+    logout: (state) => {
+      state.isAuthenticated = false;
+      state.user = null;
+    },
+  },
+});
+
+export const { login, logout } = authSlice.actions;
+
+export default authSlice.reducer;
