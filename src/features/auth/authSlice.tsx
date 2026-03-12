@@ -6,7 +6,7 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  isAuthenticated: false,
+  isAuthenticated: null,
   user: null,
 };
 
@@ -23,9 +23,11 @@ const authSlice = createSlice({
       if (username === "admin" && password === "1234") {
         state.isAuthenticated = true;
         state.user = username;
+        alert("Login successful!");
+      } else {
+        alert("Invalid credentials! Try admin/1234");
       }
     },
-
     logout: (state) => {
       state.isAuthenticated = false;
       state.user = null;
