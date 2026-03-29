@@ -12,8 +12,8 @@ export default function LoginPage() {
   const dispatch = useDispatch();
   const router = useRouter();
   const isAuthinticated = useSelector(selectIsAuthenticated);
-  const [username, setUsername] = useState("admin");
-  const [password, setPassword] = useState("1234");
+  const [username, setUsername] = useState("admin@demo.com");
+  const [password, setPassword] = useState("password123");
 
   const handleLogin = () => {
     dispatch(login({ username, password }));
@@ -23,7 +23,7 @@ export default function LoginPage() {
       router.replace("/dashboard");
     }
   }, [isAuthinticated, router]);
-  console.log("isAuthinticated", isAuthinticated);
+
   if (isAuthinticated) return null;
   return (
     <section className="min-h-screen bg-background w-full flex items-center justify-center ">
